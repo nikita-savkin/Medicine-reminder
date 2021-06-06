@@ -17,12 +17,12 @@
   <div class="body__wrapper">
     <div class="medicine">
       <header class="medicine__header">
-        <div class="modal-btn">
+        <div id="modal-show-btn" class="modal-btn">
           <img src="img/medicine-add.svg" alt="add-medicine" class="modal-btn__img">
         </div>
       </header>
       <div class="medicine__days">
-        <div class="day-time">
+        <div id="day-time-morning" class="day-time">
           <div class="day-time__info">
             <div class="day-time__logo">
               <div class="day-time__logo-bg"></div>
@@ -47,14 +47,12 @@
                 <p class="pill__left-title">Осталось</p>
                 <p class="pill__left-quant">15 min</p>
               </div>
-              <div class="pill__complete">
-
-              </div>
+              <div class="pill__complete"></div>
             </div>
           </div>
           <div class="day-time__bg"></div>
         </div>
-        <div class="day-time day-time__afternoon">
+        <div id="day-time-afternoon" class="day-time day-time__afternoon">
           <div class="day-time__info">
             <div class="day-time__logo"></div>
             <h2 class="day-time__name">День</h2>
@@ -77,7 +75,7 @@
           </div>
           <div class="day-time__bg"></div>
         </div>
-        <div class="day-time day-time__evening">
+        <div id="day-time-evening" class="day-time day-time__evening">
           <div class="day-time__info">
             <div class="day-time__logo">
               <div class="day-time__logo-bg"></div>
@@ -102,7 +100,7 @@
           </div>
           <div class="day-time__bg"></div>
         </div>
-        <div class="day-time day-time__night">
+        <div id="day-time-night" class="day-time day-time__night">
           <div class="day-time__info">
             <div class="day-time__logo">
               <div class="day-time__logo-bg">
@@ -134,22 +132,22 @@
           <div class="day-time__bg"></div>
         </div>
       </div>
-      <div class="medicine__modal">
+      <div id="medicine-modal" class="medicine__modal">
         <form class="medicine__modal-form">
-          <label for="select-medicine-input" class="select-medicine__title">Название лекарства</label>
-          <input id="select-medicine-input" type="text" class="select-medicine__input">
+          <label for="select-medicine-name" class="select-medicine__title">Название лекарства</label>
+          <input id="select-medicine-name" type="text" class="select-medicine__input">
           <h3 class="select-medicine__title">Вид лекарства</h3>
           <div class="select-medicine__types">
-            <div class="select-medicine__type">
+            <div data-medtype="capsule" class="select-medicine__type">
               <img src="img/capsule.svg" alt="medicine-type" class="select-medicine__type-img">
             </div>
-            <div class="select-medicine__type">
+            <div data-medtype="pills" class="select-medicine__type">
               <img src="img/pills.svg" alt="medicine-type" class="select-medicine__type-img">
             </div>
-            <div class="select-medicine__type">
+            <div data-medtype="injection" class="select-medicine__type">
               <img src="img/injection.svg" alt="medicine-type" class="select-medicine__type-img">
             </div>
-            <div class="select-medicine__type">
+            <div data-medtype="dropper" class="select-medicine__type">
               <img src="img/dropper.svg" alt="medicine-type" class="select-medicine__type-img">
             </div>
           </div>
@@ -173,9 +171,12 @@
             <div class="select-medicine__day">Сб</div>
             <div class="select-medicine__day">Вс</div>
           </div>
-          <label for="select-time" class="select-medicine__title">Время</label>
-          <input id="select-time" type="time" class="select-medicine__input">
-          <button class="select-medicine__add-btn">Добавить</button>
+          <label for="time-input" class="select-medicine__title">Время</label>
+          <input id="time-input" type="time" class="select-medicine__input">
+          <button id="medicine-add-btn" class="select-medicine__add-btn">Добавить</button>
+          <div id="medicine-modal-close" class="select-medicine__close-btn">
+            <img src="img/cancel.svg" alt="close-btn" class="select-medicine__close-img">
+          </div>
         </form>
       </div>
     </div>

@@ -74,7 +74,7 @@ h2 {
 
 .medicine__modal {
   position: absolute;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -84,6 +84,7 @@ h2 {
 }
 
 .medicine__modal-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -184,6 +185,15 @@ h2 {
 
 .select-medicine__add-btn:hover {
   box-shadow: 0 0 20px #92a0bb;
+}
+
+.select-medicine__close-btn {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  right: -25px;
+  cursor: pointer;
 }
 
 .day-time {
@@ -388,7 +398,7 @@ h2 {
   height: 60px;
 }
 
-.pill__descr, .pill__time {
+.pill__descr {
   text-align: center;
 }
 
@@ -414,9 +424,15 @@ h2 {
   font-size: 16px;
 }
 
-.pill__left {
+.pill__left, .pill__time {
   width: 140px;
   text-align: center;
+}
+
+.pill__complete {
+  width: 60px;
+  height: 60px;
+  background-color: #ffa0a0;
 }
 
 .modal-btn {
@@ -436,9 +452,18 @@ h2 {
   height: 50px;
 }
 
-.show-schedule {
+.schedule-show {
   max-height: 500px;
   opacity: 1;
   transition-timing-function: ease;
   transition: 1s;
+}
+
+.modal-show {
+  display: flex;
+}
+
+.active-medicine-type {
+  background-color: #99a1cf;
+  box-shadow: 0 0 10px #99a1cf;
 }
