@@ -1,0 +1,172 @@
+.medicine   
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+  width: 800px 
+  padding-top: 40px
+  background-color: #fff
+  box-shadow: 0 0 30px #bbbfda
+
+.day-time 
+  position: relative
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  overflow: hidden
+  &__info 
+    margin: 15px 0
+    text-align: center
+    z-index: 1
+  &__logo 
+    position: relative
+    width: 80px
+    height: 80px
+    border-radius: 50%
+    background-color: #FE7137
+    margin-bottom: 15px
+    cursor: pointer
+    box-shadow: 0 -5px 12px #FE7137
+    &-bg 
+      position: absolute
+      bottom: -2px
+      left: 50%
+      transform: translateX(-50%)
+      width: 70px 
+      height: 30px
+      border-radius: 50%
+      background-color: #fff
+  &__name 
+    font-size: 30px
+    font-weight: 600
+    color: #FE7137
+    margin-bottom: 5px
+  &__time 
+    font-size: 18px
+    font-weight: 600
+    color: #7B7B7C
+  &__schedule 
+    max-height: 0
+    opacity: 0
+    width: 100%
+    background-color: #fff
+    z-index: 1
+    transition: 1s
+  &__bg 
+    position: absolute
+    top: 50px
+    left: 50%
+    transform: translateX(-50%)
+    width: 1100px
+    height: 600px
+    border-radius: 50% 
+    background-color: #fff
+    z-index: 0
+  &__afternoon 
+    .day-time 
+      &__logo
+        background-color: #FF6352
+        box-shadow: 0 0 20px #FF6352
+      &__name 
+        color: #FF6352
+      &__bg 
+        background-color: #F5F5F5
+      &__schedule 
+        background-color: #F5F5F5
+  &__evening 
+    background-color: #F5F5F5
+    .day-time 
+      &__logo
+        border: 2px solid #635AAD
+        background-color: #fff
+        box-shadow: none
+        overflow: hidden
+        box-shadow: inset 0 0 5px #635AAD, 0 0 10px #635AAD
+        &-bg
+          width: 80px
+          height: 80px
+          border-radius: 50%
+          top: 0
+          left: 55px
+          background-color: #635AAD
+      &__name 
+        color: #635AAD
+      &__bg 
+        background-color: #EEEEEE
+      &__schedule 
+        background-color: #EEEEEE
+  &__night 
+    background-color: #EEEEEE
+    .day-time 
+      &__logo
+        border: 2px solid #485593
+        background-color: #fff
+        box-shadow: inset 0 0 10px #485593, 0 0 10px #485593
+        overflow: hidden
+        &-bg
+          width: 80px
+          height: 80px
+          border-radius: 50%
+          top: -20px
+          left: 55px
+          background-color: #485593
+        &-dots 
+          position: absolute
+          left: 40px
+          top: 65px
+          width: 3px 
+          height: 3px 
+          border-radius: 50%
+          background-color: #fff
+          &:nth-of-type(2)
+            left: 38px
+            top: 41px
+          &:nth-of-type(3)
+            left: 22px
+            top: 57px
+          &:nth-of-type(4)
+            width: 5px 
+            height: 5px
+            left: 23px
+            top: 27px
+          &:nth-of-type(5)
+            left: 8px
+            top: 38px
+      &__name 
+        color: #555E93FF
+      &__bg 
+        background-color: #E7E7E7
+      &__schedule 
+        background-color: #E7E7E7
+
+.pill 
+  display: flex
+  align-items: center
+  justify-content: center
+  min-width: 400px
+  margin: 10px 0 
+  &__image 
+    text-align: center
+    width: 140px 
+    &-img 
+      width: 60px 
+      height: 60px
+  &__descr 
+    text-align: center
+  &__name, &__dose-title 
+    font-size: 25px
+    font-weight: 600
+    text-transform: uppercase
+    margin: 0 15px
+    color: #292929
+  &__dose-title 
+    font-size: 18px
+  &__amount, &__dose-quant
+    font-size: 20px
+    color: #7e7e7e
+    font-weight: 600
+  &__dose-quant 
+    font-size: 16px
+  &__dose 
+    width: 140px
+    text-align: center
