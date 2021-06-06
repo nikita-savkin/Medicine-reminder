@@ -1,11 +1,98 @@
 .medicine   
+  position: relative
   display: flex
   flex-direction: column
   justify-content: flex-end
   width: 800px 
-  padding-top: 40px
   background-color: #fff
   box-shadow: 0 0 30px #bbbfda
+  &__header
+    padding: 10px 
+  &__modal 
+    position: absolute
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 100%
+    background-color: rgba(#DEE6E6, 0.5)
+    z-index: 5
+    &-form 
+      display: flex
+      flex-direction: column
+      width: 400px
+      padding: 25px
+      color: #000
+      background-color: #fff
+      input 
+        padding: 8px 12px
+        border: none
+        box-shadow: 0 0 20px #bed9e2
+        outline: none
+        font-size: 20px
+        font-weight: 600
+
+.select-medicine
+  &__title 
+    display: inline-block
+    font-size: 23px
+    margin-bottom: 10px
+    font-weight: 600
+  &__input 
+    margin-bottom: 20px
+  &__types 
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-bottom: 20px
+  &__type 
+    padding: 5px
+    background-color: #E6E9EE
+    border-radius: 5px
+    box-shadow: 0 0 5px #bfc6d3
+    cursor: pointer
+    transition: 0.3s
+    &:hover 
+      box-shadow: 0 0 8px #92a0bb
+    &-img 
+      width: 60px
+      height: 60px
+  &__dosage 
+    display: flex
+    justify-content: space-between
+    margin-bottom: 20px
+    &-input 
+      width: 150px
+  &__days 
+    display: flex
+    justify-content: space-between
+    margin-bottom: 20px
+  &__day 
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 40px
+    height: 40px
+    background-color: #E6E9EE
+    font-size: 18px
+    cursor: pointer
+    box-shadow: 0 0 5px #bfc6d3
+    &:hover 
+      box-shadow: 0 0 8px #92a0bb
+  &__add-btn  
+    width: 250px
+    padding: 10px 15px
+    margin: 0 auto
+    font-size: 20px
+    color: #fff
+    font-weight: 600
+    background-color: #92a0bb
+    border: none
+    box-shadow: 0 0 10px#92a0bb
+    transition: 0.3s
+    &:hover 
+      box-shadow: 0 0 20px#92a0bb
+
 
 .day-time 
   position: relative
@@ -147,26 +234,40 @@
   margin: 10px 0 
   &__image 
     text-align: center
-    width: 140px 
     &-img 
       width: 60px 
       height: 60px
-  &__descr 
+  &__descr, &__time
     text-align: center
-  &__name, &__dose-title 
+  &__name, &__left-title, &__time-title
     font-size: 25px
     font-weight: 600
     text-transform: uppercase
     margin: 0 15px
     color: #292929
-  &__dose-title 
+  &__left-title, &__time-title
     font-size: 18px
-  &__amount, &__dose-quant
+  &__amount, &__left-quant, &__time-amount
     font-size: 20px
     color: #7e7e7e
     font-weight: 600
-  &__dose-quant 
+  &__left-quant, &__time-amount
     font-size: 16px
-  &__dose 
+  &__left 
     width: 140px
     text-align: center
+
+.modal-btn 
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 80px
+  height: 80px
+  background-color: #ffdacb
+  border-radius: 50%
+  box-shadow: 0 0 10px #ffdacb
+  cursor: pointer
+  &__img 
+    width: 50px
+    height: 50px
+

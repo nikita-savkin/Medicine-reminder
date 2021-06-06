@@ -59,13 +59,131 @@ h2 {
 }
 
 .medicine {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   width: 800px;
-  padding-top: 40px;
   background-color: #fff;
   box-shadow: 0 0 30px #bbbfda;
+}
+
+.medicine__header {
+  padding: 10px;
+}
+
+.medicine__modal {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(222, 230, 230, 0.5);
+  z-index: 5;
+}
+
+.medicine__modal-form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 25px;
+  color: #000;
+  background-color: #fff;
+}
+
+.medicine__modal-form input {
+  padding: 8px 12px;
+  border: none;
+  box-shadow: 0 0 20px #bed9e2;
+  outline: none;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.select-medicine__title {
+  display: inline-block;
+  font-size: 23px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.select-medicine__input {
+  margin-bottom: 20px;
+}
+
+.select-medicine__types {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.select-medicine__type {
+  padding: 5px;
+  background-color: #E6E9EE;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #bfc6d3;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.select-medicine__type:hover {
+  box-shadow: 0 0 8px #92a0bb;
+}
+
+.select-medicine__type-img {
+  width: 60px;
+  height: 60px;
+}
+
+.select-medicine__dosage {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.select-medicine__dosage-input {
+  width: 150px;
+}
+
+.select-medicine__days {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.select-medicine__day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #E6E9EE;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #bfc6d3;
+}
+
+.select-medicine__day:hover {
+  box-shadow: 0 0 8px #92a0bb;
+}
+
+.select-medicine__add-btn {
+  width: 250px;
+  padding: 10px 15px;
+  margin: 0 auto;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+  background-color: #92a0bb;
+  border: none;
+  box-shadow: 0 0 10px #92a0bb;
+  transition: 0.3s;
+}
+
+.select-medicine__add-btn:hover {
+  box-shadow: 0 0 20px #92a0bb;
 }
 
 .day-time {
@@ -263,7 +381,6 @@ h2 {
 
 .pill__image {
   text-align: center;
-  width: 140px;
 }
 
 .pill__image-img {
@@ -271,11 +388,11 @@ h2 {
   height: 60px;
 }
 
-.pill__descr {
+.pill__descr, .pill__time {
   text-align: center;
 }
 
-.pill__name, .pill__dose-title {
+.pill__name, .pill__left-title, .pill__time-title {
   font-size: 25px;
   font-weight: 600;
   text-transform: uppercase;
@@ -283,23 +400,40 @@ h2 {
   color: #292929;
 }
 
-.pill__dose-title {
+.pill__left-title, .pill__time-title {
   font-size: 18px;
 }
 
-.pill__amount, .pill__dose-quant {
+.pill__amount, .pill__left-quant, .pill__time-amount {
   font-size: 20px;
   color: #7e7e7e;
   font-weight: 600;
 }
 
-.pill__dose-quant {
+.pill__left-quant, .pill__time-amount {
   font-size: 16px;
 }
 
-.pill__dose {
+.pill__left {
   width: 140px;
   text-align: center;
+}
+
+.modal-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background-color: #ffdacb;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffdacb;
+  cursor: pointer;
+}
+
+.modal-btn__img {
+  width: 50px;
+  height: 50px;
 }
 
 .show-schedule {

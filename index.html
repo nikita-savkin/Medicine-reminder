@@ -16,109 +16,167 @@
 <body>
   <div class="body__wrapper">
     <div class="medicine">
-      <div class="day-time">
-        <div class="day-time__info">
-          <div class="day-time__logo">
-            <div class="day-time__logo-bg"></div>
-          </div>
-          <h2 class="day-time__name">Утро</h2>
-          <div class="day-time__time">5-12</div>
+      <header class="medicine__header">
+        <div class="modal-btn">
+          <img src="img/medicine-add.svg" alt="add-medicine" class="modal-btn__img">
         </div>
-        <div class="day-time__schedule">
-          <div class="pill">
-            <div class="pill__image">
-              <img src="img/capsule.svg" alt="capsule-img" class="pill__image-img">
+      </header>
+      <div class="medicine__days">
+        <div class="day-time">
+          <div class="day-time__info">
+            <div class="day-time__logo">
+              <div class="day-time__logo-bg"></div>
             </div>
-            <div class="pill__descr">
-              <p class="pill__name">Витамины</p>
-              <p class="pill__amount">40mg</p>
-            </div>
-            <div class="pill__dose">
-              <p class="pill__dose-title">Дозировка</p>
-              <p class="pill__dose-quant">1 Таблетка</p>
+            <h2 class="day-time__name">Утро</h2>
+            <div class="day-time__time">5-12</div>
+          </div>
+          <div class="day-time__schedule">
+            <div class="pill">
+              <div class="pill__image">
+                <img src="img/capsule.svg" alt="capsule-img" class="pill__image-img">
+              </div>
+              <div class="pill__time">
+                <p class="pill__time-title">Время</p>
+                <p class="pill__time-amount">10:00</p>
+              </div>
+              <div class="pill__descr">
+                <p class="pill__name">Витамины</p>
+                <p class="pill__amount">40mg, 1 таблетка</p>
+              </div>
+              <div class="pill__left">
+                <p class="pill__left-title">Осталось</p>
+                <p class="pill__left-quant">15 min</p>
+              </div>
+              <div class="pill__complete">
+
+              </div>
             </div>
           </div>
+          <div class="day-time__bg"></div>
         </div>
-        <div class="day-time__bg"></div>
+        <div class="day-time day-time__afternoon">
+          <div class="day-time__info">
+            <div class="day-time__logo"></div>
+            <h2 class="day-time__name">День</h2>
+            <div class="day-time__time">12-17</div>
+          </div>
+          <div class="day-time__schedule">
+            <div class="pill">
+              <div class="pill__image">
+                <img src="img/capsule.svg" alt="capsule-img" class="pill__image-img">
+              </div>
+              <div class="pill__descr">
+                <p class="pill__name">Витамины</p>
+                <p class="pill__amount">40mg</p>
+              </div>
+              <div class="pill__dose">
+                <p class="pill__dose-title">Дозировка</p>
+                <p class="pill__dose-quant">1 Таблетка</p>
+              </div>
+            </div>
+          </div>
+          <div class="day-time__bg"></div>
+        </div>
+        <div class="day-time day-time__evening">
+          <div class="day-time__info">
+            <div class="day-time__logo">
+              <div class="day-time__logo-bg"></div>
+            </div>
+            <h2 class="day-time__name">Вечер</h2>
+            <div class="day-time__time">17-20</div>
+          </div>
+          <div class="day-time__schedule">
+            <div class="pill">
+              <div class="pill__image">
+                <img src="img/capsule.svg" alt="capsule-img" class="pill__image-img">
+              </div>
+              <div class="pill__descr">
+                <p class="pill__name">Витамины</p>
+                <p class="pill__amount">40mg</p>
+              </div>
+              <div class="pill__dose">
+                <p class="pill__dose-title">Дозировка</p>
+                <p class="pill__dose-quant">1 Таблетка</p>
+              </div>
+            </div>
+          </div>
+          <div class="day-time__bg"></div>
+        </div>
+        <div class="day-time day-time__night">
+          <div class="day-time__info">
+            <div class="day-time__logo">
+              <div class="day-time__logo-bg">
+                <div class="day-time__logo-dots"></div>
+                <div class="day-time__logo-dots"></div>
+                <div class="day-time__logo-dots"></div>
+                <div class="day-time__logo-dots"></div>
+                <div class="day-time__logo-dots"></div>
+              </div>
+            </div>
+            <h2 class="day-time__name">Ночь</h2>
+            <div class="day-time__time">20-00</div>
+          </div>
+          <div class="day-time__schedule">
+            <div class="pill">
+              <div class="pill__image">
+                <img src="img/capsule.svg" alt="capsule-img" class="pill__image-img">
+              </div>
+              <div class="pill__descr">
+                <p class="pill__name">Витамины</p>
+                <p class="pill__amount">40mg</p>
+              </div>
+              <div class="pill__dose">
+                <p class="pill__dose-title">Время до принятия</p>
+                <p class="pill__dose-quant">1 Таблетка</p>
+              </div>
+            </div>
+          </div>
+          <div class="day-time__bg"></div>
+        </div>
       </div>
-      <div class="day-time day-time__afternoon">
-        <div class="day-time__info">
-          <div class="day-time__logo"></div>
-          <h2 class="day-time__name">День</h2>
-          <div class="day-time__time">12-17</div>
-        </div>
-        <div class="day-time__schedule">
-          <div class="pill">
-            <div class="pill__image">
-              <img src="img/capsule.svg" alt="capsule-img" class="pill__image-img">
+      <div class="medicine__modal">
+        <form class="medicine__modal-form">
+          <label for="select-medicine-input" class="select-medicine__title">Название лекарства</label>
+          <input id="select-medicine-input" type="text" class="select-medicine__input">
+          <h3 class="select-medicine__title">Вид лекарства</h3>
+          <div class="select-medicine__types">
+            <div class="select-medicine__type">
+              <img src="img/capsule.svg" alt="medicine-type" class="select-medicine__type-img">
             </div>
-            <div class="pill__descr">
-              <p class="pill__name">Витамины</p>
-              <p class="pill__amount">40mg</p>
+            <div class="select-medicine__type">
+              <img src="img/pills.svg" alt="medicine-type" class="select-medicine__type-img">
             </div>
-            <div class="pill__dose">
-              <p class="pill__dose-title">Дозировка</p>
-              <p class="pill__dose-quant">1 Таблетка</p>
+            <div class="select-medicine__type">
+              <img src="img/injection.svg" alt="medicine-type" class="select-medicine__type-img">
             </div>
-          </div>
-        </div>
-        <div class="day-time__bg"></div>
-      </div>
-      <div class="day-time day-time__evening">
-        <div class="day-time__info">
-          <div class="day-time__logo">
-            <div class="day-time__logo-bg"></div>
-          </div>
-          <h2 class="day-time__name">Вечер</h2>
-          <div class="day-time__time">17-20</div>
-        </div>
-        <div class="day-time__schedule">
-          <div class="pill">
-            <div class="pill__image">
-              <img src="img/capsule.svg" alt="capsule-img" class="pill__image-img">
-            </div>
-            <div class="pill__descr">
-              <p class="pill__name">Витамины</p>
-              <p class="pill__amount">40mg</p>
-            </div>
-            <div class="pill__dose">
-              <p class="pill__dose-title">Дозировка</p>
-              <p class="pill__dose-quant">1 Таблетка</p>
+            <div class="select-medicine__type">
+              <img src="img/dropper.svg" alt="medicine-type" class="select-medicine__type-img">
             </div>
           </div>
-        </div>
-        <div class="day-time__bg"></div>
-      </div>
-      <div class="day-time day-time__night">
-        <div class="day-time__info">
-          <div class="day-time__logo">
-            <div class="day-time__logo-bg">
-              <div class="day-time__logo-dots"></div>
-              <div class="day-time__logo-dots"></div>
-              <div class="day-time__logo-dots"></div>
-              <div class="day-time__logo-dots"></div>
-              <div class="day-time__logo-dots"></div>
+          <div class="select-medicine__dosage">
+            <div class="dosage__value">
+              <label for="dosage-value-input" class="select-medicine__title">Дозировка</label>
+              <input id="dosage-value-input" type="text" class="select-medicine__dosage-input">
+            </div>
+            <div class="dosage__value">
+              <label for="dosage-quantity-input" class="select-medicine__title">Кол-во</label>
+              <input id="dosage-quantity-input" type="text" class="select-medicine__dosage-input">
             </div>
           </div>
-          <h2 class="day-time__name">Ночь</h2>
-          <div class="day-time__time">20-00</div>
-        </div>
-        <div class="day-time__schedule">
-          <div class="pill">
-            <div class="pill__image">
-              <img src="img/capsule.svg" alt="capsule-img" class="pill__image-img">
-            </div>
-            <div class="pill__descr">
-              <p class="pill__name">Витамины</p>
-              <p class="pill__amount">40mg</p>
-            </div>
-            <div class="pill__dose">
-              <p class="pill__dose-title">Дозировка</p>
-              <p class="pill__dose-quant">1 Таблетка</p>
-            </div>
+          <h3 class="select-medicine__title">Дни недели</h3>
+          <div class="select-medicine__days">
+            <div class="select-medicine__day">Пн</div>
+            <div class="select-medicine__day">Вт</div>
+            <div class="select-medicine__day">Ср</div>
+            <div class="select-medicine__day">Чт</div>
+            <div class="select-medicine__day">Пт</div>
+            <div class="select-medicine__day">Сб</div>
+            <div class="select-medicine__day">Вс</div>
           </div>
-        </div>
-        <div class="day-time__bg"></div>
+          <label for="select-time" class="select-medicine__title">Время</label>
+          <input id="select-time" type="time" class="select-medicine__input">
+          <button class="select-medicine__add-btn">Добавить</button>
+        </form>
       </div>
     </div>
   </div>
