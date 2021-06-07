@@ -72,6 +72,20 @@ h2 {
   padding: 10px;
 }
 
+.medicine__days {
+  max-height: 800px;
+  overflow-y: scroll;
+}
+
+.medicine__days::-webkit-scrollbar {
+  width: 3px;
+  background-color: transparent;
+}
+
+.medicine__days::-webkit-scrollbar-thumb {
+  background-color: #99a1cf;
+}
+
 .medicine__modal {
   position: absolute;
   display: none;
@@ -430,9 +444,21 @@ h2 {
 }
 
 .pill__complete {
+  display: flex;
+  align-items: center;
   width: 60px;
   height: 60px;
-  background-color: #ffa0a0;
+}
+
+.pill__check-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.pill__check-icon:first-child {
+  margin-right: 10px;
 }
 
 .modal-btn {

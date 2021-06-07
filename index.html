@@ -47,7 +47,10 @@
                 <p class="pill__left-title">Осталось</p>
                 <p class="pill__left-quant">15 min</p>
               </div>
-              <div class="pill__complete"></div>
+              <div class="pill__complete">
+                <img src="img/checked.svg" alt="pill-complete-icon" class="pill__check-icon">
+                <img src="img/error.svg" alt="pill-cancel-icon" class="pill__check-icon">
+              </div>
             </div>
           </div>
           <div class="day-time__bg"></div>
@@ -58,21 +61,7 @@
             <h2 class="day-time__name">День</h2>
             <div class="day-time__time">12-17</div>
           </div>
-          <div class="day-time__schedule">
-            <div class="pill">
-              <div class="pill__image">
-                <img src="img/capsule.svg" alt="capsule-img" class="pill__image-img">
-              </div>
-              <div class="pill__descr">
-                <p class="pill__name">Витамины</p>
-                <p class="pill__amount">40mg</p>
-              </div>
-              <div class="pill__dose">
-                <p class="pill__dose-title">Дозировка</p>
-                <p class="pill__dose-quant">1 Таблетка</p>
-              </div>
-            </div>
-          </div>
+          <div class="day-time__schedule"></div>
           <div class="day-time__bg"></div>
         </div>
         <div id="day-time-evening" class="day-time day-time__evening">
@@ -83,21 +72,7 @@
             <h2 class="day-time__name">Вечер</h2>
             <div class="day-time__time">17-20</div>
           </div>
-          <div class="day-time__schedule">
-            <div class="pill">
-              <div class="pill__image">
-                <img src="img/capsule.svg" alt="capsule-img" class="pill__image-img">
-              </div>
-              <div class="pill__descr">
-                <p class="pill__name">Витамины</p>
-                <p class="pill__amount">40mg</p>
-              </div>
-              <div class="pill__dose">
-                <p class="pill__dose-title">Дозировка</p>
-                <p class="pill__dose-quant">1 Таблетка</p>
-              </div>
-            </div>
-          </div>
+          <div class="day-time__schedule"></div>
           <div class="day-time__bg"></div>
         </div>
         <div id="day-time-night" class="day-time day-time__night">
@@ -114,21 +89,7 @@
             <h2 class="day-time__name">Ночь</h2>
             <div class="day-time__time">20-00</div>
           </div>
-          <div class="day-time__schedule">
-            <div class="pill">
-              <div class="pill__image">
-                <img src="img/capsule.svg" alt="capsule-img" class="pill__image-img">
-              </div>
-              <div class="pill__descr">
-                <p class="pill__name">Витамины</p>
-                <p class="pill__amount">40mg</p>
-              </div>
-              <div class="pill__dose">
-                <p class="pill__dose-title">Время до принятия</p>
-                <p class="pill__dose-quant">1 Таблетка</p>
-              </div>
-            </div>
-          </div>
+          <div class="day-time__schedule"></div>
           <div class="day-time__bg"></div>
         </div>
       </div>
@@ -158,7 +119,7 @@
             </div>
             <div class="dosage__value">
               <label for="dosage-quantity-input" class="select-medicine__title">Кол-во</label>
-              <input id="dosage-quantity-input" type="text" class="select-medicine__dosage-input">
+              <input id="dosage-quantity-input" type="number" min="1" class="select-medicine__dosage-input">
             </div>
           </div>
           <h3 class="select-medicine__title">Дни недели</h3>
@@ -172,7 +133,7 @@
             <div class="select-medicine__day">Вс</div>
           </div>
           <label for="time-input" class="select-medicine__title">Время</label>
-          <input id="time-input" type="time" class="select-medicine__input">
+          <input id="time-input" type="datetime-local" class="select-medicine__input">
           <button id="medicine-add-btn" class="select-medicine__add-btn">Добавить</button>
           <div id="medicine-modal-close" class="select-medicine__close-btn">
             <img src="img/cancel.svg" alt="close-btn" class="select-medicine__close-img">

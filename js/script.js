@@ -40,7 +40,11 @@ medicineAddBtn.addEventListener('click', (e) => {
     dosageValueInput = document.querySelector('#dosage-value-input').value,
     dosageQuantityInput = document.querySelector('#dosage-quantity-input').value,
     timeInput = document.querySelector('#time-input').value,
-    currentHour = +timeInput.slice(0, 2);
+    date = new Date(timeInput),
+    formatedFullDate = date.toISOString(),
+    currentHour = date.getHours(),
+    currentMinutes = date.getMinutes(),
+    dateShow = `${currentHour}:${currentMinutes}`;
 
   const activeTypeName = () => {
     let activeType;
@@ -57,9 +61,13 @@ medicineAddBtn.addEventListener('click', (e) => {
 
   const typeName = activeTypeName();
 
-  const medicineSingleBlock = createMedicine(typeName, timeInput, medicineNameInput, dosageValueInput, dosageQuantityInput);
+  const medicineSingleBlock = createMedicine(typeName, formatedFullDate, dateShow, medicineNameInput, dosageValueInput, dosageQuantityInput);
 
-  const addMedicineInDaytime = (daytime) => daytime.querySelector('.day-time__schedule').append(medicineSingleBlock);
+  const addMedicineInDaytime = (daytime) => {
+    const schedule = daytime.querySelector('.day-time__schedule');
+    schedule.append(medicineSingleBlock);
+    schedule.classList.add('schedule-show');
+  };
 
   if (medicineNameInput !== '' &&
     dosageValueInput !== '' &&
@@ -67,19 +75,21 @@ medicineAddBtn.addEventListener('click', (e) => {
     timeInput !== '' &&
     activeTypeName() !== undefined
   ) {
-    if (currentHour > 5 && currentHour < 12) {
+    if (5 <= currentHour && currentHour < 12) {
       addMedicineInDaytime(dayTimeMorning);
-    } else if (currentHour => 12 && currentHour < 17) {
+    } else if (12 <= currentHour && currentHour < 17) {
       addMedicineInDaytime(dayTimeAfternoon);
-    } else if (currentHour => 17 && currentHour < 20) {
+    } else if (17 <= currentHour && currentHour < 20) {
       addMedicineInDaytime(dayTimeEvening);
     } else {
       addMedicineInDaytime(dayTimeNight);
     }
+
+    medicineLeftTime();
   }
 });
 
-const createMedicine = (typeImgSrc, time, name, value, quantity, timeLeft = '10:00') => {
+const createMedicine = (typeImgSrc, date, dateShow, name, value, quantity, timeLeft = '10:00') => {
   const newMedicine = document.createElement('div');
   newMedicine.className = 'pill';
   newMedicine.innerHTML = `
@@ -88,7 +98,7 @@ const createMedicine = (typeImgSrc, time, name, value, quantity, timeLeft = '10:
   </div>
   <div class="pill__time">
     <p class="pill__time-title">Время</p>
-    <p class="pill__time-amount">${time}</p>
+    <p data-time="${date}" class="pill__time-amount">${dateShow}</p>
   </div>
   <div class="pill__descr">
     <p class="pill__name">${name}</p>
@@ -98,8 +108,35 @@ const createMedicine = (typeImgSrc, time, name, value, quantity, timeLeft = '10:
     <p class="pill__left-title">Осталось</p>
     <p class="pill__left-quant">${timeLeft}<s/p>
   </div>
-  <div class="pill__complete"></div>
+  <div class="pill__complete">
+    <img src="img/checked.svg" alt="pill-complete-icon" class="pill__check-icon">
+    <img src="img/error.svg" alt="pill-cancel-icon" class="pill__check-icon">
+  </div>
   `;
 
   return newMedicine;
 };
+
+const medicineLeftTime = () => {
+  const now = new Date();
+  const medicineTimeAmount = document.querySelectorAll('.pill__time-amount');
+
+  medicineTimeAmount.forEach(time => {
+    const medicineTime = new Date(time.dataset.time);
+    const leftTime = time.closest('.pill').querySelector('.pill__left-quant');
+
+    const currentTime = medicineTime.getTime() - now.getTime();
+
+    const hours = Math.floor((currentTime / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((currentTime / (1000 * 60)) % 60);
+    const seconds = Math.floor((currentTime / 1000) % 60)
+
+    console.log(hours);
+
+    // leftTime.textContent = Math.abs(now - medicineTime)
+  });
+};
+
+// 1623091163631
+
+// 1625600340000
