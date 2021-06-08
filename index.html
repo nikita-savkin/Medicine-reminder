@@ -28,7 +28,7 @@
               <div class="day-time__logo-bg"></div>
             </div>
             <h2 class="day-time__name">Утро</h2>
-            <div class="day-time__time">5-12</div>
+            <div class="day-time__time">5 - 12</div>
           </div>
           <div class="day-time__schedule">
             <div class="pill">
@@ -42,14 +42,19 @@
               <div class="pill__descr">
                 <p class="pill__name">Витамины</p>
                 <p class="pill__amount">40mg, 1 таблетка</p>
+                <p class="pill__eating">До еды</p>
               </div>
               <div class="pill__left">
                 <p class="pill__left-title">Осталось</p>
                 <p class="pill__left-quant">15 min</p>
               </div>
               <div class="pill__complete">
-                <img src="img/checked.svg" alt="pill-complete-icon" class="pill__check-icon">
-                <img src="img/error.svg" alt="pill-cancel-icon" class="pill__check-icon">
+                <div class="pill__check">
+                  <img id="mecicine-complete" src="img/checked.svg" alt="pill-complete-icon" class="pill__check-icon">
+                </div>
+                <div id="mecicine-cancel" class="pill__check">
+                  <img src="img/error.svg" alt="pill-cancel-icon" class="pill__check-icon">
+                </div>
               </div>
             </div>
           </div>
@@ -59,7 +64,7 @@
           <div class="day-time__info">
             <div class="day-time__logo"></div>
             <h2 class="day-time__name">День</h2>
-            <div class="day-time__time">12-17</div>
+            <div class="day-time__time">12 - 17</div>
           </div>
           <div class="day-time__schedule"></div>
           <div class="day-time__bg"></div>
@@ -70,7 +75,7 @@
               <div class="day-time__logo-bg"></div>
             </div>
             <h2 class="day-time__name">Вечер</h2>
-            <div class="day-time__time">17-20</div>
+            <div class="day-time__time">17 - 20</div>
           </div>
           <div class="day-time__schedule"></div>
           <div class="day-time__bg"></div>
@@ -87,7 +92,7 @@
               </div>
             </div>
             <h2 class="day-time__name">Ночь</h2>
-            <div class="day-time__time">20-00</div>
+            <div class="day-time__time">20 - 00</div>
           </div>
           <div class="day-time__schedule"></div>
           <div class="day-time__bg"></div>
@@ -134,6 +139,11 @@
           </div>
           <label for="time-input" class="select-medicine__title">Время</label>
           <input id="time-input" type="datetime-local" class="select-medicine__input">
+          <h3 class="select-medicine__title">Повторы</h3>
+          <div class="select-medicine__method">
+            <div data-method="до еды" class="select-medicine__method-time">До еды</div>
+            <div data-method="после еды" class="select-medicine__method-time">После еды</div>
+          </div>
           <button id="medicine-add-btn" class="select-medicine__add-btn">Добавить</button>
           <div id="medicine-modal-close" class="select-medicine__close-btn">
             <img src="img/cancel.svg" alt="close-btn" class="select-medicine__close-img">

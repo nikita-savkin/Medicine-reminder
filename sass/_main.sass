@@ -44,7 +44,7 @@
 .select-medicine
   &__title 
     display: inline-block
-    font-size: 23px
+    font-size: 20px
     margin-bottom: 10px
     font-weight: 600
   &__input 
@@ -88,6 +88,23 @@
     box-shadow: 0 0 5px #bfc6d3
     &:hover 
       box-shadow: 0 0 8px #92a0bb
+  &__method 
+    display: flex
+    justify-content: space-between
+    &-time
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 150px 
+      height: 50px
+      background-color: #E6E9EE
+      box-shadow: 0 0 5px #bed9e2
+      font-size: 20px
+      margin-bottom: 20px
+      transition: 0.3s
+      cursor: pointer
+      &:hover 
+        box-shadow: 0 0 10px #92a0bb
   &__add-btn  
     width: 250px
     padding: 10px 15px
@@ -95,12 +112,12 @@
     font-size: 20px
     color: #fff
     font-weight: 600
-    background-color: #92a0bb
+    background: linear-gradient(#f09787, #fe7058)
     border: none
-    box-shadow: 0 0 10px#92a0bb
+    box-shadow: 0 5px 10px#fe7058
     transition: 0.3s
     &:hover 
-      box-shadow: 0 0 20px#92a0bb
+      box-shadow: 0 5px 15px#fe7058
   &__close
     &-btn 
       position: absolute
@@ -259,14 +276,22 @@
     font-size: 25px
     font-weight: 600
     text-transform: uppercase
-    margin: 0 15px
+    margin: 0 15px 5px
     color: #292929
+  &__eating 
+    width: 100px
+    margin: 0 auto
+    padding: 2px 3px
+    font-weight: 600
+    color: #ffffff
+    background-color: #99a1cf
   &__left-title, &__time-title
     font-size: 18px
   &__amount, &__left-quant, &__time-amount
     font-size: 20px
     color: #7e7e7e
     font-weight: 600
+    margin-bottom: 5px
   &__left-quant, &__time-amount
     font-size: 16px
   &__left, &__time
@@ -282,6 +307,9 @@
     width: 30px
     height: 30px
     cursor: pointer
+    transition: 0.3s
+    &:hover 
+      transform: scale(1.1)
     &:first-child
       margin-right: 10px
 

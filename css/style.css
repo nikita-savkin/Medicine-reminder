@@ -1,6 +1,17 @@
 @font-face {
-  font-family: "Futuralightc";
-  src: url("../fonts/futuralightc.woff2") format("woff2"), url("../fonts/futuralightc.otf") format("otf");
+  font-family: 'Gilroy-regular';
+  src: url("../fonts/Gilroy-Regular.eot");
+  src: local("../fonts/Gilroy Regular"), local("../fonts/Gilroy-Regular"), url("../fonts/Gilroy-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Gilroy-Regular.woff") format("woff"), url("../fonts/Gilroy-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy-light';
+  src: url("../fonts/Gilroy-Light.eot");
+  src: local("../fonts/Gilroy Light"), local("../fonts/Gilroy-Light"), url("../fonts/Gilroy-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/Gilroy-Light.woff") format("woff"), url("../fonts/Gilroy-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
 }
 
 *, *:before, *:after {
@@ -8,19 +19,20 @@
 }
 
 body {
-  font-family: 'Futuralightc', sans-serif;
+  font-family: 'Gilroy-light', sans-serif;
+  font-weight: 300;
   width: 100%;
   margin: 0 auto;
   color: #fff;
 }
 
 input, button, textarea {
-  font-family: 'Futuralightc', sans-serif;
+  font-family: 'Gilroy-light', sans-serif;
   outline: none;
 }
 
 button {
-  font-family: 'Futuralightc', sans-serif;
+  font-family: 'Gilroy-light', sans-serif;
   cursor: pointer;
 }
 
@@ -118,7 +130,7 @@ h2 {
 
 .select-medicine__title {
   display: inline-block;
-  font-size: 23px;
+  font-size: 20px;
   margin-bottom: 10px;
   font-weight: 600;
 }
@@ -184,6 +196,29 @@ h2 {
   box-shadow: 0 0 8px #92a0bb;
 }
 
+.select-medicine__method {
+  display: flex;
+  justify-content: space-between;
+}
+
+.select-medicine__method-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  background-color: #E6E9EE;
+  box-shadow: 0 0 5px #bed9e2;
+  font-size: 20px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.select-medicine__method-time:hover {
+  box-shadow: 0 0 10px #92a0bb;
+}
+
 .select-medicine__add-btn {
   width: 250px;
   padding: 10px 15px;
@@ -191,14 +226,14 @@ h2 {
   font-size: 20px;
   color: #fff;
   font-weight: 600;
-  background-color: #92a0bb;
+  background: linear-gradient(#f09787, #fe7058);
   border: none;
-  box-shadow: 0 0 10px #92a0bb;
+  box-shadow: 0 5px 10px #fe7058;
   transition: 0.3s;
 }
 
 .select-medicine__add-btn:hover {
-  box-shadow: 0 0 20px #92a0bb;
+  box-shadow: 0 5px 15px #fe7058;
 }
 
 .select-medicine__close-btn {
@@ -420,8 +455,17 @@ h2 {
   font-size: 25px;
   font-weight: 600;
   text-transform: uppercase;
-  margin: 0 15px;
+  margin: 0 15px 5px;
   color: #292929;
+}
+
+.pill__eating {
+  width: 100px;
+  margin: 0 auto;
+  padding: 2px 3px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #99a1cf;
 }
 
 .pill__left-title, .pill__time-title {
@@ -432,6 +476,7 @@ h2 {
   font-size: 20px;
   color: #7e7e7e;
   font-weight: 600;
+  margin-bottom: 5px;
 }
 
 .pill__left-quant, .pill__time-amount {
@@ -455,6 +500,11 @@ h2 {
   width: 30px;
   height: 30px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.pill__check-icon:hover {
+  transform: scale(1.1);
 }
 
 .pill__check-icon:first-child {
@@ -489,7 +539,12 @@ h2 {
   display: flex;
 }
 
-.active-medicine-type {
+.active-medicine-type, .active-medicine-method {
   background-color: #99a1cf;
   box-shadow: 0 0 10px #99a1cf;
+}
+
+.hide-medicine {
+  opacity: 0.3;
+  transition: 0.3s;
 }
