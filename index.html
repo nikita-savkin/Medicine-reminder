@@ -17,10 +17,12 @@
   <div class="body__wrapper">
     <div class="medicine">
       <header class="medicine__header">
-        <div id="modal-show-btn" class="modal-btn">
-          <img src="img/medicine-add.svg" alt="add-medicine" class="modal-btn__img">
-        </div>
+        <div id="medicine-week" class="medicine__week"></div>
       </header>
+      <div class="medicine__current-day">
+        <p class="medicine__current-day-number">30</p>
+        <p class="medicine__current-day-name">ВТ</p>
+      </div>
       <div class="medicine__days">
         <div id="day-time-morning" class="day-time">
           <div class="day-time__info">
@@ -149,6 +151,9 @@
             <img src="img/cancel.svg" alt="close-btn" class="select-medicine__close-img">
           </div>
         </form>
+      </div>
+      <div id="modal-show-btn" class="modal-btn">
+        <img src="img/medicine-add.svg" alt="add-medicine" class="modal-btn__img">
       </div>
     </div>
   </div>

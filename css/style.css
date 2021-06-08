@@ -78,10 +78,44 @@ h2 {
   width: 800px;
   background-color: #fff;
   box-shadow: 0 0 30px #bbbfda;
+  overflow: hidden;
 }
 
 .medicine__header {
-  padding: 10px;
+  display: flex;
+  padding: 15px 100px;
+  background: #F7EFED;
+  box-shadow: 0 15px 20px #F7EFED;
+  margin-bottom: 20px;
+}
+
+.medicine__week {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.medicine__current-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  color: #000;
+  margin: 10px auto;
+  border-radius: 20px;
+  background-color: #ffb9b9;
+}
+
+.medicine__current-day-number {
+  font-size: 50px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.medicine__current-day-name {
+  font-size: 23px;
 }
 
 .medicine__days {
@@ -126,6 +160,39 @@ h2 {
   outline: none;
   font-size: 20px;
   font-weight: 600;
+}
+
+.week-day {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 70px;
+  padding: 10px;
+  border-radius: 30px;
+  background: linear-gradient(#b2bae6, #8491dd);
+  box-shadow: 0 0 10px #8491dd;
+  color: #47597AFF;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.week-day:hover {
+  background: linear-gradient(#FEAFC5, #FE718C);
+  color: #fff;
+  transform: scale(1.2);
+  box-shadow: 0 0 15px #FEAFC5;
+}
+
+.week-day__number {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.week-day__name {
+  font-size: 14px;
 }
 
 .select-medicine__title {
@@ -512,9 +579,12 @@ h2 {
 }
 
 .modal-btn {
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
+  bottom: 20px;
+  left: 20px;
   width: 80px;
   height: 80px;
   background-color: #ffdacb;

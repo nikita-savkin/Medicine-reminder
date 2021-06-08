@@ -12,6 +12,19 @@ const dayTimeLogo = document.querySelectorAll('.day-time__logo'),
   dayTimeEvening = document.querySelector('#day-time-evening'),
   dayTimeNight = document.querySelector('#day-time-night');
 
+let weekDays;
+
+const medicineAllDataArr = [];
+
+function MedicineSingleData(medName, day, time, value, dosage, type, method) {
+  this.medName = medName;
+  this.day = day;
+  this.time = time;
+  this.value = value;
+  this.dosage = dosage;
+  this.type = type;
+  this.method = method;
+}
 
 //Show schedule on click
 dayTimeLogo.forEach(logo => {
@@ -46,7 +59,7 @@ medicineAddBtn.addEventListener('click', (e) => {
     dosageQuantityInput = document.querySelector('#dosage-quantity-input').value,
     timeInput = document.querySelector('#time-input').value,
     date = new Date(timeInput),
-    formatedFullDate = date.toISOString(),
+    formatedFullDate = date.toLocaleString(),
     currentHour = date.getHours(),
     currentMinutes = date.getMinutes(),
     dateShow = `${currentHour}:${currentMinutes}`;
@@ -82,17 +95,24 @@ medicineAddBtn.addEventListener('click', (e) => {
     typeName !== undefined &&
     typeMethod !== undefined
   ) {
-    if (5 <= currentHour && currentHour < 12) {
-      addMedicineInDaytime(dayTimeMorning);
-    } else if (12 <= currentHour && currentHour < 17) {
-      addMedicineInDaytime(dayTimeAfternoon);
-    } else if (17 <= currentHour && currentHour < 20) {
-      addMedicineInDaytime(dayTimeEvening);
-    } else {
-      addMedicineInDaytime(dayTimeNight);
+    if (date.getMonth() === new Date().getMonth() &&
+      date.getDay() === new Date().getDay()) {
+      if (5 <= currentHour && currentHour < 12) {
+        addMedicineInDaytime(dayTimeMorning);
+      } else if (12 <= currentHour && currentHour < 17) {
+        addMedicineInDaytime(dayTimeAfternoon);
+      } else if (17 <= currentHour && currentHour < 20) {
+        addMedicineInDaytime(dayTimeEvening);
+      } else {
+        addMedicineInDaytime(dayTimeNight);
+      }
     }
 
     medicineLeftTime();
+
+    const newMedicine = new MedicineSingleData(medicineNameInput, formatedFullDate, timeInput, dosageValueInput, dosageQuantityInput, typeName, typeMethod);
+
+    medicineAllDataArr.push(newMedicine);
   }
 });
 
@@ -174,3 +194,95 @@ const medicineLeftTime = () => {
     });
   });
 };
+
+//Create week day 
+const createWeekDay = (dayNumber, dayName, weekDate) => {
+  const weekDay = document.createElement('div');
+  weekDay.className = 'week-day';
+  weekDay.setAttribute('data-weekdate', `${weekDate}`);
+  weekDay.innerHTML = `
+    <div class="week-day__number">${dayNumber}</div>
+    <div class="week-day__name">${dayName}</div>
+  `;
+
+  return weekDay;
+};
+
+const createDates = (days) => {
+  const medicineWeek = document.querySelector('#medicine-week');
+  const dayNames = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
+
+  const result = new Date();
+  result.setDate(result.getDate() + days);
+
+  const dayName = dayNames[result.getDay()];
+  const dayNumber = result.getDate();
+
+  medicineWeek.append(createWeekDay(dayNumber, dayName, result.toLocaleString()));
+};
+
+const daysQuant = 7;
+
+for (let i = 0; i <= daysQuant; i++) {
+  createDates(i);
+  weekDays = document.querySelectorAll('.week-day');
+}
+
+
+weekDays.forEach(day => {
+  day.addEventListener('click', (e) => {
+    const schedules = document.querySelectorAll('.day-time__schedule');
+    schedules.forEach(schedule => {
+      schedule.innerHTML = '';
+    });
+
+    const currentWeekDay = e.currentTarget.dataset.weekdate.slice(0, 10);
+
+    const filteredMedicineByDates = medicineAllDataArr.filter(data => {
+      return currentWeekDay == data.day.slice(0, 10);
+    });
+
+
+    filteredMedicineByDates.forEach(medicine => {
+      const type = medicine.type,
+        date = medicine.day,
+        medName = medicine.medName,
+        value = medicine.value,
+        dosage = medicine.dosage,
+        method = medicine.method;
+
+      const medicineSingleBlock = createMedicine(type, date, date, medName, value, dosage, method);
+
+      const addMedicineInDaytime = (daytime) => {
+        const schedule = daytime.querySelector('.day-time__schedule');
+        schedule.append(medicineSingleBlock);
+        schedule.classList.add('schedule-show');
+      };
+
+      const currentHour = new Date(medicineSingleBlock.querySelector('.pill__time-amount').dataset.time).getHours();
+  
+
+      if (5 <= currentHour && currentHour < 12) {
+        addMedicineInDaytime(dayTimeMorning);
+      } else if (12 <= currentHour && currentHour < 17) {
+        addMedicineInDaytime(dayTimeAfternoon);
+      } else if (17 <= currentHour && currentHour < 20) {
+        addMedicineInDaytime(dayTimeEvening);
+      } else {
+        addMedicineInDaytime(dayTimeNight);
+      }
+
+    });
+  });
+});
+
+
+// {
+//   "medName": "123",
+//   "day": "08.06.2021, 19:38:00",
+//   "time": "2021-06-08T19:38",
+//   "value": "123",
+//   "dosage": "123",
+//   "type": "capsule",
+//   "method": "после еды"
+// }
