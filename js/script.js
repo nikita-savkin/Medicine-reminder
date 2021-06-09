@@ -14,7 +14,7 @@ const dayTimeLogo = document.querySelectorAll('.day-time__logo'),
   dayTimeNight = document.querySelector('#day-time-night');
 
 let weekDays;
-
+const dayNames = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
 const medicineAllDataArr = [];
 
 function MedicineSingleData(id, medName, date, formatedDate, value, dosage, type, method, status) {
@@ -31,9 +31,7 @@ function MedicineSingleData(id, medName, date, formatedDate, value, dosage, type
 
 //Show schedule on click
 dayTimeLogo.forEach(logo => {
-  logo.addEventListener('click', (e) => {
-    e.currentTarget.closest('.day-time').querySelector('.day-time__schedule').classList.toggle('schedule-show');
-  });
+  logo.addEventListener('click', (e) => e.currentTarget.closest('.day-time').querySelector('.day-time__schedule').classList.toggle('schedule-show'));
 });
 
 //Show and hide modal on clicks
@@ -56,6 +54,8 @@ addActiveMedicineProperty(medicineMethods, 'active-medicine-method');
 //Filter medicines by week days
 const addAndFilterMedicine = (currentWeekDay) => {
   const schedules = document.querySelectorAll('.day-time__schedule');
+  const allDays = document.querySelectorAll('.week-day');
+
   schedules.forEach(schedule => schedule.innerHTML = '');
 
   const filteredMedicineByDates = medicineAllDataArr.filter(data => currentWeekDay.slice(0, 10) == data.formatedDate.slice(0, 10));
@@ -81,6 +81,13 @@ const addAndFilterMedicine = (currentWeekDay) => {
 
     const currentHour = +formatedDate.slice(-8, -6);
 
+    allDays.forEach(day => {
+      day.classList.remove('active-week-day');
+      if (currentWeekDay.slice(0, 10) == day.dataset.weekdate.slice(0, 10)) {
+        day.classList.add('active-week-day');
+      }
+    });
+
     if (5 <= currentHour && currentHour < 12) {
       addMedicineInDaytime(dayTimeMorning);
     } else if (12 <= currentHour && currentHour < 17) {
@@ -90,6 +97,7 @@ const addAndFilterMedicine = (currentWeekDay) => {
     } else {
       addMedicineInDaytime(dayTimeNight);
     }
+
 
     medicineLeftTime();
   });
@@ -107,6 +115,7 @@ medicineAddBtn.addEventListener('click', (e) => {
     nowFormated = new Date().toLocaleString(),
     id = Math.floor(Math.random() * 99999999),
     status = 'enabled';
+
 
   const activePropName = (props, className, dataName) => {
     let activeType;
@@ -135,7 +144,7 @@ medicineAddBtn.addEventListener('click', (e) => {
 
     medicineAllDataArr.push(newMedicine);
 
-    addAndFilterMedicine(nowFormated);
+    addAndFilterMedicine(formatedDate);
   }
 });
 
@@ -271,7 +280,6 @@ const createWeekDay = (dayNumber, dayName, weekDate) => {
   return weekDay;
 };
 
-const dayNames = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
 
 const createDates = (days) => {
   const medicineWeek = document.querySelector('#medicine-week');
@@ -295,6 +303,7 @@ for (let i = 0; i <= daysQuant; i++) {
 
 weekDays.forEach(day => {
   weekDays[0].classList.add('active-week-day');
+
   day.addEventListener('click', (e) => {
     addAndFilterMedicine(e.currentTarget.dataset.weekdate.slice(0, 10));
 
@@ -315,7 +324,3 @@ const setMaxDaysInput = (days) => {
 
 dateInput.max = setMaxDaysInput(7).toISOString().slice(0, -5);
 dateInput.min = new Date().toISOString().slice(0, -5);
-
-
-
-
