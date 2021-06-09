@@ -14,6 +14,7 @@ const dayTimeLogo = document.querySelectorAll('.day-time__logo'),
   dayTimeNight = document.querySelector('#day-time-night');
 
 let weekDays;
+const daysQuant = 7;
 const dayNames = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
 const medicineAllDataArr = [];
 
@@ -98,7 +99,6 @@ const addAndFilterMedicine = (currentWeekDay) => {
       addMedicineInDaytime(dayTimeNight);
     }
 
-
     medicineLeftTime();
   });
 };
@@ -112,10 +112,8 @@ medicineAddBtn.addEventListener('click', (e) => {
     dateInputValue = document.querySelector('#time-input').value,
     date = new Date(dateInputValue),
     formatedDate = date.toLocaleString(),
-    nowFormated = new Date().toLocaleString(),
     id = Math.floor(Math.random() * 99999999),
     status = 'enabled';
-
 
   const activePropName = (props, className, dataName) => {
     let activeType;
@@ -145,6 +143,8 @@ medicineAddBtn.addEventListener('click', (e) => {
     medicineAllDataArr.push(newMedicine);
 
     addAndFilterMedicine(formatedDate);
+
+    updateArrInLocalSrtorage();
   }
 });
 
@@ -248,6 +248,8 @@ const medicineLeftTime = () => {
       leftTime.classList.add('disabled-timer');
       medicine.classList.remove('enabled');
       medicine.classList.add('disabled');
+
+      updateArrInLocalSrtorage();
     });
 
     medCancelBtn.addEventListener('click', (e) => {
@@ -263,6 +265,8 @@ const medicineLeftTime = () => {
 
       medicine.classList.add('hide-medicine');
       setTimeout(() => medicine.remove(), 300);
+
+      updateArrInLocalSrtorage();
     });
   });
 };
@@ -280,7 +284,7 @@ const createWeekDay = (dayNumber, dayName, weekDate) => {
   return weekDay;
 };
 
-
+//Set date and push in html
 const createDates = (days) => {
   const medicineWeek = document.querySelector('#medicine-week');
 
@@ -293,14 +297,14 @@ const createDates = (days) => {
   medicineWeek.append(createWeekDay(dayNumber, dayName, result.toLocaleString()));
 };
 
-const daysQuant = 7;
 
+//Add several days in html
 for (let i = 0; i <= daysQuant; i++) {
   createDates(i);
   weekDays = document.querySelectorAll('.week-day');
 }
 
-
+//Add active class to week day on click
 weekDays.forEach(day => {
   weekDays[0].classList.add('active-week-day');
 
@@ -324,3 +328,19 @@ const setMaxDaysInput = (days) => {
 
 dateInput.max = setMaxDaysInput(7).toISOString().slice(0, -5);
 dateInput.min = new Date().toISOString().slice(0, -5);
+
+//Add medicine all data arr in Local storage 
+const updateArrInLocalSrtorage = () => localStorage.setItem('medicineAllDataArr', JSON.stringify(medicineAllDataArr));
+
+
+let savedArr = localStorage.getItem('medicineAllDataArr');
+savedArr = JSON.parse(savedArr);
+
+//Load medicines data from local storage and add in html
+if (savedArr) {
+  medicineAllDataArr.push(...savedArr);
+
+  medicineAllDataArr.forEach(data => {
+    addAndFilterMedicine(data.formatedDate);
+  });
+}
