@@ -583,10 +583,11 @@ h2 {
   left: 20px;
   width: 80px;
   height: 80px;
-  background-color: #ffdacb;
+  background: linear-gradient(#b2bae6, #8491dd);
   border-radius: 50%;
-  box-shadow: 0 0 10px #ffdacb;
+  box-shadow: 0 5px 10px #8491dd;
   cursor: pointer;
+  z-index: 10;
 }
 
 .modal-btn__img {
