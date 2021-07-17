@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Midicine-reminder</title>
+  <title>Midicine Reminder</title>
 
+  <link rel="icon" href="img/medicine.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
     crossorigin="anonymous" />
@@ -25,7 +26,7 @@
             <div class="day-time__logo">
               <div class="day-time__logo-bg"></div>
             </div>
-            <h2 class="day-time__name">Утро</h2>
+            <h2 class="day-time__name">Morning</h2>
             <div class="day-time__time">5 - 12</div>
           </div>
           <div class="day-time__schedule"></div>
@@ -34,7 +35,7 @@
         <div id="day-time-afternoon" class="day-time day-time__afternoon">
           <div class="day-time__info">
             <div class="day-time__logo"></div>
-            <h2 class="day-time__name">День</h2>
+            <h2 class="day-time__name">Afternoon</h2>
             <div class="day-time__time">12 - 17</div>
           </div>
           <div class="day-time__schedule"></div>
@@ -45,7 +46,7 @@
             <div class="day-time__logo">
               <div class="day-time__logo-bg"></div>
             </div>
-            <h2 class="day-time__name">Вечер</h2>
+            <h2 class="day-time__name">Evening</h2>
             <div class="day-time__time">17 - 20</div>
           </div>
           <div class="day-time__schedule"></div>
@@ -62,7 +63,7 @@
                 <div class="day-time__logo-dots"></div>
               </div>
             </div>
-            <h2 class="day-time__name">Ночь</h2>
+            <h2 class="day-time__name">Night</h2>
             <div class="day-time__time">20 - 00</div>
           </div>
           <div class="day-time__schedule"></div>
@@ -71,9 +72,9 @@
       </div>
       <div id="medicine-modal" class="medicine__modal">
         <form class="medicine__modal-form">
-          <label for="select-medicine-name" class="select-medicine__title">Название лекарства</label>
+          <label for="select-medicine-name" class="select-medicine__title">Medicine name</label>
           <input id="select-medicine-name" type="text" class="select-medicine__input">
-          <h3 class="select-medicine__title">Вид лекарства</h3>
+          <h3 class="select-medicine__title">Medicine type</h3>
           <div class="select-medicine__types">
             <div data-medtype="capsule" class="select-medicine__type">
               <img src="img/capsule.svg" alt="medicine-type" class="select-medicine__type-img">
@@ -90,22 +91,22 @@
           </div>
           <div class="select-medicine__dosage">
             <div class="dosage__value">
-              <label for="dosage-value-input" class="select-medicine__title">Дозировка</label>
+              <label for="dosage-value-input" class="select-medicine__title">Dosage</label>
               <input id="dosage-value-input" type="text" class="select-medicine__dosage-input">
             </div>
             <div class="dosage__value">
-              <label for="dosage-quantity-input" class="select-medicine__title">Кол-во</label>
+              <label for="dosage-quantity-input" class="select-medicine__title">Amount</label>
               <input id="dosage-quantity-input" type="number" min="1" class="select-medicine__dosage-input">
             </div>
           </div>
-          <label for="time-input" class="select-medicine__title">Время</label>
+          <label for="time-input" class="select-medicine__title">Time</label>
           <input id="time-input" type="datetime-local" class="select-medicine__input" max="2021-06-16T21:25:33">
-          <h3 class="select-medicine__title">Повторы</h3>
+          <h3 class="select-medicine__title">Repeats</h3>
           <div class="select-medicine__method">
-            <div data-method="до еды" class="select-medicine__method-time">До еды</div>
-            <div data-method="после еды" class="select-medicine__method-time">После еды</div>
+            <div data-method="Before food" class="select-medicine__method-time">Before food</div>
+            <div data-method="After food" class="select-medicine__method-time">After food</div>
           </div>
-          <button id="medicine-add-btn" class="select-medicine__add-btn">Добавить</button>
+          <button id="medicine-add-btn" class="select-medicine__add-btn">Add</button>
           <div id="medicine-modal-close" class="select-medicine__close-btn">
             <img src="img/cancel.svg" alt="close-btn" class="select-medicine__close-img">
           </div>
@@ -116,7 +117,6 @@
       </div>
     </div>
   </div>
-
 
   <script src="js/script.js"></script>
 </body>

@@ -15,7 +15,7 @@ const dayTimeLogo = document.querySelectorAll('.day-time__logo'),
 
 let weekDays;
 const daysQuant = 7;
-const dayNames = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
+const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const medicineAllDataArr = [];
 
 function MedicineSingleData(id, medName, date, formatedDate, value, dosage, type, method, status) {
@@ -166,16 +166,16 @@ const createMedicine = (id, typeImgSrc, date, dateShow, name, value, quantity, e
     <img src="img/${typeImgSrc}.svg" alt="capsule-img" class="pill__image-img">
   </div>
   <div class="pill__time">
-    <p class="pill__time-title">Время</p>
+    <p class="pill__time-title">Time</p>
     <p data-date="${date}" class="pill__time-amount">${dateShow}</p>
   </div>
   <div class="pill__descr">
     <p class="pill__name">${name}</p>
-    <p class="pill__amount">${value}, ${quantity} шт.</p>
+    <p class="pill__amount">${value}, ${quantity} qt.</p>
     <p class="pill__eating">${eating}</p>
   </div>
   <div class="pill__left">
-    <p class="pill__left-title">Осталось</p>
+    <p class="pill__left-title">Time left</p>
     <p class="pill__left-quant"></p>
   </div>
   <div class="pill__complete">
@@ -212,11 +212,11 @@ const medicineLeftTime = () => {
         const seconds = Math.floor((currentTime / 1000) % 60);
 
         if (days <= 0) {
-          leftTime.innerHTML = `${hours} ч : ${minutes} м : ${seconds} с`;
+          leftTime.innerHTML = `${hours} h : ${minutes} m : ${seconds} s`;
         } else {
-          leftTime.innerHTML = `${days} д : ${hours} ч 
+          leftTime.innerHTML = `${days} d : ${hours} h 
           <br> 
-          ${minutes} м : ${seconds} с`;
+          ${minutes} m : ${seconds} s`;
         }
 
         if (hours === 0 && minutes === 0 && seconds === 0) {

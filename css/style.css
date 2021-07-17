@@ -318,6 +318,9 @@ h2 {
 }
 
 .day-time__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 15px 0;
   text-align: center;
   z-index: 1;
